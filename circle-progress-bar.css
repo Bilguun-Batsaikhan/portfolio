@@ -74,7 +74,8 @@ circle.bg {
 }
 
 circle.progress {
-  stroke: #00bfff;
+  /* stroke: #00bfff; */
+  stroke: #1abd1a;
   stroke-dasharray: 283; /* 2πr = 2 * π * 45 ≈ 283 */
   stroke-dashoffset: 283;
   transition: stroke-dashoffset 1.5s ease-out;
@@ -87,4 +88,23 @@ circle.progress {
   transform: translate(-50%, -50%);
   font-size: 22px;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(1, minmax(100px, 1fr));
+    margin: 0 20px;
+  }
+
+  .card-grid:first-of-type,
+  .card-grid:last-of-type {
+    margin: 0;
+    border: none;
+  }
+
+  .languages-h {
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2rem;
+  }
 }
