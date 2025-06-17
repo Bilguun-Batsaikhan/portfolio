@@ -19,6 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function getStrokeColor(percent) {
+  // Map percent (0-100) to hue (30=orange, 120=green)
+  const hue = 30 + (percent / 100) * (120 - 30);
+  return `hsl(${hue}, 80%, 50%)`;
+}
+
 function animateCircle(circleElement) {
   const percentageElement = circleElement.querySelector(".percentage");
   const progressCircle = circleElement.querySelector(".progress");
@@ -40,6 +46,7 @@ function animateCircle(circleElement) {
     // stroke-dashoffset: 283;    // Hide entire stroke (start at 0%)
     progressCircle.style.strokeDashoffset = offset; // This dynamically changes how much of the progress ring is visible, based on how far along the animation is.
     percentageElement.textContent = `${Math.round(current)}%`;
+    progressCircle.style.stroke = getStrokeColor(current);
   }
 
   function step() {
