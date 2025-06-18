@@ -1,0 +1,78 @@
+:root {
+  --grid-item-bg: #f9f9f9;
+  --grid-item-border: #ccc;
+  --grid-item-hover-bg: #f1f1f1;
+  --grid-item-text-color: #333;
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 20px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#contact-title {
+  margin: 0;
+  padding: 20px 0 0 0;
+}
+
+.contact-container form {
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--grid-item-bg);
+  padding: 0 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-container form input,
+.contact-container form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--grid-item-border);
+  border-radius: 4px;
+  font-size: 1rem;
+  color: var(--grid-item-text-color);
+}
+
+.contact-container form textarea {
+  height: 150px;
+  resize: none;
+}
+
+.contact-container form input:focus,
+.contact-container form textarea:focus {
+  border-color: #333;
+  outline: none;
+}
+
+.contact-container form button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.contact-container form button:hover {
+  background-color: darken(var(--primary-color), 10%);
+}
+.contact-container form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.contact-container form button:disabled:hover {
+  background-color: #ccc;
+}
+.contact-container form .error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
