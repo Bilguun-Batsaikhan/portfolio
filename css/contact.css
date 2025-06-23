@@ -14,42 +14,57 @@
   justify-content: center;
 }
 
-#contact-title {
-  margin: 0;
-  padding: 20px 0 0 0;
-}
-
 .contact-container form {
   width: 100%;
   max-width: 600px;
   background-color: var(--grid-item-bg);
   padding: 40px 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.contact-container form input,
-.contact-container form textarea {
+/* OPTIONAL: Keep spacing between fields */
+.form-outline {
+  margin-bottom: 1.5rem;
+}
+
+textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid var(--grid-item-border);
-  border-radius: 4px;
+  min-height: 200px !important;
+  padding: 12px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  background: #f9f9f9;
+  color: #333;
   font-size: 1rem;
-  color: var(--grid-item-text-color);
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  resize: none !important;
 }
 
-.contact-container form textarea {
-  height: 150px;
-  resize: none;
-}
-
-.contact-container form input:focus,
-.contact-container form textarea:focus {
-  border-color: #333;
+textarea:focus {
+  border-color: #569cd6;
   outline: none;
+  background: #fff;
+  box-shadow: 0 0 0 2px #cbe7ff;
 }
 
+/* Override MDB default to make borders more visible if needed */
+.form-control {
+  border-bottom: 1px solid var(--grid-item-border) !important;
+  color: var(--grid-item-text-color);
+  background-color: transparent;
+}
+
+/* Style focus border (optional for better visibility) */
+.form-control:focus {
+  border-color: #333 !important;
+  box-shadow: none !important;
+}
+
+/* Style submit button */
 .contact-container form button {
   width: 100%;
   padding: 10px;
@@ -60,16 +75,16 @@
   font-size: 1rem;
   cursor: pointer;
 }
+
 .contact-container form button:hover {
-  background-color: darken(var(--primary-color), 10%);
+  background-color: #a01414; /* or use your own shade */
 }
+
 .contact-container form button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
-.contact-container form button:disabled:hover {
-  background-color: #ccc;
-}
+
 .contact-container form .error {
   color: red;
   font-size: 0.875rem;

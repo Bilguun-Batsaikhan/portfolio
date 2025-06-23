@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Note HTML</title>
+    <!-- CSS Files -->
+    <!-- <link rel="stylesheet" href="css/mdb.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/side-nav.css" />
+    <link rel="stylesheet" href="css/timeline.css" />
+    <link rel="stylesheet" href="css/circle-progress-bar.css" />
+    <link rel="stylesheet" href="css/contact.css" /> -->
+    <link rel="stylesheet" href="css/note-html.css" />
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/png" />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidenav">
+        <a href="#how-internet-works" class="nav-link current"
+          >How Internet works?</a
+        >
+        <a href="#http" class="nav-link">HTTP</a>
+        <a href="#html-common-tags" class="nav-link">HTML Common Tags</a>
+        <a href="#lists" class="nav-link">Lists</a>
+        <a href="#attributes" class="nav-link">Attributes</a>
+        <a href="#image-tag" class="nav-link">Image Tag</a>
+        <a href="#document-structure" class="nav-link">Document Structure</a>
+        <a href="#block-vs-inline-element" class="nav-link"
+          >Block vs Inline element</a
+        >
+        <a href="#semantic-elements" class="nav-link">Semantic Elements</a>
+        <a href="#keyboard-shortcuts-for-vscode" class="nav-link"
+          >Keyboard Shortcuts</a
+        >
+        <a href="#input-field-attributes" class="nav-link"
+          >Input Field Attributes</a
+        >
+        <a href="#select-boxes-text-area" class="nav-link"
+          >Select Boxes & Text Area</a
+        >
+        <a href="#checkboxes-radio-buttons" class="nav-link"
+          >Checkboxes & Radio Buttons</a
+        >
+        <a href="#tables" class="nav-link">Tables</a>
+      </aside>
+      <div class="content">
+        <h1 id="html-and-web-fundamentals-notes">HTML and Web Fundamentals</h1>
+        <main class="main">
+          <section id="how-internet-works">
+            <h2>How Internet works?</h2>
+            <p>
+              Whenever a client makes a request over the internet using a
+              specific
+              <strong>URL</strong> link address, it makes the request using the
+              <strong>HTTP</strong> protocol. The server then sends back a
+              response, which can include an <strong>HTML</strong> file that is
+              subsequently rendered on the browser. This
+              <strong>HTML</strong> file can also contain links to other assets
+              such as <em>JavaScript</em>, <em>CSS</em>, or <em>images</em>, for
+              which the browser makes subsequent requests to the server.
+            </p>
+            <figure>
+              <img
+                src="images/client-server.png"
+                alt="Client-Server Communication"
+              />
+              <figcaption aria-hidden="true">
+                Client-Server Communication
+              </figcaption>
+            </figure>
+            <p>
+              Each client machine has its own <strong>IP</strong> address, but
+              the public internet will typically see only one gateway address.
+              For instance, if multiple devices are connected to the same
+              internet connection, the router’s <strong>IP</strong> address will
+              be visible to the public rather than each individual device’s
+              address.
+            </p>
+            <p>
+              Conversely, an internet domain address is converted to a real
+              <strong>IP</strong> address through <strong>DNS</strong> (Domain
+              Name System). You can imagine DNS as a service that maintains a
+              record of all domain names and their corresponding IP addresses.
+            </p>
+          </section>
+          <section id="http">
+            <h2>HTTP</h2>
+            <p>
+              <strong>HTTP</strong> stands for Hypertext Transfer Protocol and
+              serves as a communication language between client and server.
+            </p>
+            <ul>
+              <li>
+                HTTP is <em>stateless</em>, meaning each request/response cycle
+                is an independent transaction.
+              </li>
+              <li>
+                HTTP responses include status codes such as
+                <strong>200 (OK)</strong> and <strong>404 (Not Found)</strong>.
+              </li>
+              <li>
+                The most common HTTP request methods are CRUD operations:
+                <strong>GET, POST, PUT, DELETE</strong>.
+              </li>
+            </ul>
+          </section>
+          <section id="html-common-tags">
+            <h2>HTML Common Tags</h2>
+            <p>
+              <img src="images/common-tags.png" alt="Common HTML Tags Part 1" />
+              <img
+                src="images/common-tags-1.png"
+                alt="Common HTML Tags Part 2"
+              />
+            </p>
+            <p>
+              <code>&lt;p&gt;</code> and <code>&lt;h&gt;</code> are block-level
+              tags, meaning they will take up the full available width and start
+              on a new line.
+            </p>
+          </section>
+          <section id="lists">
+            <h2>Lists</h2>
+            <p>
+              To create a <strong>list</strong>, first use
+              <code>&lt;ul&gt;</code> (unordered list) or
+              <code>&lt;ol&gt;</code> (ordered list), then nest them with
+              <code>&lt;li&gt;</code> (list item) tags.
+            </p>
+            <pre>
+              <code>
+&lt;ul&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  &lt;li&gt;Item 3&lt;/li&gt;
+  &lt;li&gt;Item 4&lt;/li&gt;
+&lt;/ul&gt;
+              </code>
+            </pre>
+
+            <p>
+              Browser will render these tags with default styling with margin
+              and padding.
+            </p>
+          </section>
+          <section id="attributes">
+            <h2>Attributes</h2>
+            <p><code>Attributes</code> provide additional information.</p>
+            <div class="sourceCode" id="cb2">
+              <pre
+                class="sourceCode html"
+              ><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">tagname</span><span class="ot"> attributeName</span><span class="op">=</span><span class="st">&quot;value&quot;</span><span class="dt">&gt;</span>Content<span class="dt">&lt;/</span><span class="kw">tagname</span><span class="dt">&gt;</span></span></code></pre>
+            </div>
+          </section>
+          <section id="image-tag">
+            <h2>Image Tag</h2>
+            <div class="sourceCode" id="cb3">
+              <pre
+                class="sourceCode html"
+              ><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">figure</span><span class="dt">&gt;</span></span>
+          <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;images/landscape.jpg&quot;</span><span class="ot"> alt</span><span class="op">=</span><span class="st">&quot;Landscape&quot;</span><span class="ot"> width</span><span class="op">=</span><span class="st">&quot;400&quot;</span><span class="ot"> height</span><span class="op">=</span><span class="st">&quot;300&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+          <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">figcaption</span><span class="dt">&gt;</span>Fig.1 - Beautiful landscape<span class="dt">&lt;/</span><span class="kw">figcaption</span><span class="dt">&gt;</span></span>
+          <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">figure</span><span class="dt">&gt;</span></span></code></pre>
+            </div>
+            <p>
+              <img src="images/landscape2.jpg" alt="alt text" /> Fig.1 -
+              Beautiful landscape
+            </p>
+          </section>
+          <section id="document-structure">
+            <h2>Document Structure</h2>
+            <div class="sourceCode" id="cb4">
+              <pre
+                class="sourceCode html"
+              ><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--Tells browser it&#39;s an HTML5 document--&gt;</span></span>
+        <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+        <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+        <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--Root element--&gt;</span></span>
+        <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">&quot;en&quot;</span><span class="dt">&gt;</span></span>
+        <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!--Contains meta info, title, links to other resources, etc--&gt;</span></span>
+        <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+        <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;UTF-8&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+        <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;viewport&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+        <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!--Page title, useful for search engine--&gt;</span></span>
+        <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Document<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+        <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+        <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+        <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre>
+            </div>
+          </section>
+          <section id="block-vs-inline-element">
+            <h2>Block vs Inline element</h2>
+            <div class="table-wrapper">
+              <table>
+                <colgroup>
+                  <col style="width: 12%" />
+                  <col style="width: 35%" />
+                  <col style="width: 51%" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>Inline Elements</th>
+                    <th>Block-Level Elements</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Display Behavior</strong></td>
+                    <td>Do not start on a new line</td>
+                    <td>Always start on a new line</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Width</strong></td>
+                    <td>Only as wide as the content</td>
+                    <td>Takes up the full width of the container</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Height</strong></td>
+                    <td>Only as tall as the content</td>
+                    <td>Can have height and width set</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Common Elements</strong></td>
+                    <td>
+                      <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>,
+                      <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>,
+                      <code>&lt;img&gt;</code>, <code>&lt;label&gt;</code>
+                    </td>
+                    <td>
+                      <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>,
+                      <code>&lt;h1&gt;</code>–<code>&lt;h2&gt;</code>,
+                      <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>,
+                      <code>&lt;li&gt;</code>, <code>&lt;section&gt;</code>,
+                      <code>&lt;article&gt;</code>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Nesting Rules</strong></td>
+                    <td>Can’t contain block-level elements</td>
+                    <td>Can contain inline and other block-level elements</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Styling Impact</strong></td>
+                    <td>Affects only a part of a line</td>
+                    <td>Affects entire block of content</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Examples in Use</strong></td>
+                    <td>
+                      <code
+                        >This is &lt;strong&gt;bold&lt;/strong&gt; text.</code
+                      >
+                    </td>
+                    <td>
+                      <code>&lt;p&gt;This is a paragraph.&lt;/p&gt;</code>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section id="semantic-elements">
+            <h2>Semantic Elements</h2>
+            <section class="semantic-layout">
+              <header class="item header">&lt;header&gt;</header>
+              <nav class="item nav">&lt;nav&gt;</nav>
+              <section class="item section">&lt;section&gt;</section>
+              <aside class="item aside">&lt;aside&gt;</aside>
+              <article class="item article">&lt;article&gt;</article>
+              <footer class="item footer">&lt;footer&gt;</footer>
+            </section>
+            <!-- Semantic Elements Grid End -->
+          </section>
+          <section id="keyboard-shortcuts-for-vscode">
+            <h2>Keyboard Shortcuts for VScode</h2>
+            <table>
+              <colgroup>
+                <col style="width: 24%" />
+                <col style="width: 30%" />
+                <col style="width: 44%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Shortcut</th>
+                  <th>Action</th>
+                  <th>Description / Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>Ctrl + Shift + P</code></td>
+                  <td>Open Command Palette</td>
+                  <td>Search commands and settings</td>
+                </tr>
+                <tr>
+                  <td><code>Ctrl + B</code></td>
+                  <td>Toggle Explorer</td>
+                  <td>Show/hide the file explorer</td>
+                </tr>
+                <tr>
+                  <td><code>Ctrl + J</code></td>
+                  <td>Toggle Terminal</td>
+                  <td>Open/close the integrated terminal</td>
+                </tr>
+                <tr>
+                  <td><code>Ctrl + Shift + F</code></td>
+                  <td>Search All Files</td>
+                  <td>Search across all files in the project</td>
+                </tr>
+                <tr>
+                  <td><code>Ctrl + Tab</code></td>
+                  <td>Switch Between Tabs</td>
+                  <td>Navigate open files</td>
+                </tr>
+                <tr>
+                  <td><code>Ctrl + W</code></td>
+                  <td>Close a Tab</td>
+                  <td>Close the current editor tab</td>
+                </tr>
+                <tr>
+                  <td><code>Alt + ↑ / ↓</code></td>
+                  <td>Move a Line</td>
+                  <td>Move the line up or down</td>
+                </tr>
+                <tr>
+                  <td><code>Shift + Alt + ↑ / ↓</code></td>
+                  <td>Copy a Line</td>
+                  <td>Duplicate the line above or below</td>
+                </tr>
+                <tr>
+                  <td><code>Home</code></td>
+                  <td>Go to Beginning of Line</td>
+                  <td>Cursor jumps to the start</td>
+                </tr>
+                <tr>
+                  <td><code>Fn + Home</code></td>
+                  <td>Go to End of Line</td>
+                  <td>On some keyboards (e.g., Mac)</td>
+                </tr>
+                <tr>
+                  <td><code>Ctrl + I</code></td>
+                  <td>Inward Select a Tag</td>
+                  <td><em>Custom</em>: Select inner tag content</td>
+                </tr>
+                <tr>
+                  <td><code>Ctrl + O</code></td>
+                  <td>Outward Select a Tag</td>
+                  <td><em>Custom</em>: Select outer tag including tag</td>
+                </tr>
+                <tr>
+                  <td><code>Ctrl + Enter</code></td>
+                  <td>New Line Below (Inside Tag)</td>
+                  <td>Insert new line below while editing</td>
+                </tr>
+                <tr>
+                  <td><code>Ctrl + Shift + Enter</code></td>
+                  <td>New Line Above (Inside Tag)</td>
+                  <td>Insert new line above while editing</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section id="input-field-attributes">
+            <h2>Input Field Attributes</h2>
+            <div class="sourceCode" id="cb5">
+              <pre
+                class="sourceCode html"
+              ><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="dt">&gt;</span></span>
+        <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+        <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">&quot;name&quot;</span><span class="dt">&gt;</span>Name<span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
+        <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span></span>
+        <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ot">      type</span><span class="op">=</span><span class="st">&quot;text&quot;</span></span>
+        <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ot">      id</span><span class="op">=</span><span class="st">&quot;name&quot;</span></span>
+        <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ot">      placeholder</span><span class="op">=</span><span class="st">&quot;Enter name&quot;</span></span>
+        <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ot">      name</span><span class="op">=</span><span class="st">&quot;name&quot;</span></span>
+        <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ot">      required</span></span>
+        <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ot">      minlength</span><span class="op">=</span><span class="st">&quot;3&quot;</span></span>
+        <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="ot">      maxlength</span><span class="op">=</span><span class="st">&quot;10&quot;</span></span>
+        <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ot">    </span><span class="dt">/&gt;</span></span>
+        <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+        <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  ...</span>
+        <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span></code></pre>
+            </div>
+            <table>
+              <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 17%" />
+                <col style="width: 60%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Attribute / Tag</th>
+                  <th>Purpose</th>
+                  <th>Explanation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>&lt;form&gt;</code></td>
+                  <td>Form container</td>
+                  <td>Groups input fields for data submission.</td>
+                </tr>
+                <tr>
+                  <td><code>&lt;div&gt;</code></td>
+                  <td>Container</td>
+                  <td>Used for layout and grouping elements.</td>
+                </tr>
+                <tr>
+                  <td><code>&lt;label for="name"&gt;</code></td>
+                  <td>Input label</td>
+                  <td>
+                    Describes the input field; linked via
+                    <code>for="name"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>for="name"</code></td>
+                  <td>Link label to input</td>
+                  <td>
+                    Matches the <code>id</code> of the input so clicking the
+                    label focuses the input.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;input&gt;</code></td>
+                  <td>User input field</td>
+                  <td>Accepts data from the user.</td>
+                </tr>
+                <tr>
+                  <td><code>type="text"</code></td>
+                  <td>Input type</td>
+                  <td>Creates a single-line text input.</td>
+                </tr>
+                <tr>
+                  <td><code>id="name"</code></td>
+                  <td>Identifier</td>
+                  <td>
+                    Uniquely identifies the element; used by
+                    <code>label</code> and JavaScript.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>placeholder="Enter name"</code></td>
+                  <td>Hint text</td>
+                  <td>
+                    Shows a suggestion inside the input box before the user
+                    types.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>name="name"</code></td>
+                  <td>Form data key</td>
+                  <td>
+                    Used as the key when the form is submitted (e.g.,
+                    <code>name=John</code>).
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>required</code></td>
+                  <td>Field must be filled</td>
+                  <td>Prevents form submission if the input is empty.</td>
+                </tr>
+                <tr>
+                  <td><code>minlength="3"</code></td>
+                  <td>Minimum characters</td>
+                  <td>Requires at least 3 characters to submit.</td>
+                </tr>
+                <tr>
+                  <td><code>maxlength="10"</code></td>
+                  <td>Maximum characters</td>
+                  <td>Limits input to 10 characters max.</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section id="select-boxes-text-area">
+            <h2>Select Boxes &amp; Text Area</h2>
+            <div class="sourceCode" id="cb6">
+              <pre
+                class="sourceCode html"
+              ><code class="sourceCode html"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="dt">&gt;</span></span>
+        <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">&quot;product&quot;</span><span class="dt">&gt;</span>Product<span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
+        <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">br</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+        <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">select</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;product&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;product&quot;</span><span class="ot"> multiple size</span><span class="op">=</span><span class="st">&quot;4&quot;</span><span class="dt">&gt;</span></span>
+        <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">option</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;iphone&quot;</span><span class="dt">&gt;</span>iPhone<span class="dt">&lt;/</span><span class="kw">option</span><span class="dt">&gt;</span></span>
+        <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">option</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;imac&quot;</span><span class="ot"> selected</span><span class="dt">&gt;</span>iMac<span class="dt">&lt;/</span><span class="kw">option</span><span class="dt">&gt;</span></span>
+        <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">option</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;macbook&quot;</span><span class="dt">&gt;</span>Macbook<span class="dt">&lt;/</span><span class="kw">option</span><span class="dt">&gt;</span></span>
+        <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">option</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;macbook-pro&quot;</span><span class="dt">&gt;</span>Macbook Pro<span class="dt">&lt;/</span><span class="kw">option</span><span class="dt">&gt;</span></span>
+        <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">select</span><span class="dt">&gt;</span></span>
+        <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span></code></pre>
+            </div>
+            <form>
+              <label for="product">Product</label> <br />
+              <select name="product" id="product" multiple size="4">
+                <option value="iphone">iPhone</option>
+                <option value="imac" selected>iMac</option>
+                <option value="macbook">Macbook</option>
+                <option value="macbook-pro">Macbook Pro</option>
+              </select>
+            </form>
+            <p>
+              You can also use shortcut <code>select&gt;option*5</code> to
+              generate 5 options quickly.
+            </p>
+            <p>
+              If you want a longer input then use <code>textarea</code>. You can
+              control the <strong>width</strong> with <code>cols</code>,
+              <strong>height</strong> with <code>rows</code> attributes.
+            </p>
+            <div class="sourceCode" id="cb7">
+              <pre
+                class="sourceCode html"
+              ><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">textarea</span></span>
+        <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ot">  name</span><span class="op">=</span><span class="st">&quot;message&quot;</span></span>
+        <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ot">  id</span><span class="op">=</span><span class="st">&quot;message&quot;</span></span>
+        <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ot">  placeholder</span><span class="op">=</span><span class="st">&quot;Enter your issue&quot;</span></span>
+        <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ot">  rows</span><span class="op">=</span><span class="st">&quot;4&quot;</span></span>
+        <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ot">  cols</span><span class="op">=</span><span class="st">&quot;40&quot;</span></span>
+        <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&gt;&lt;/</span><span class="kw">textarea</span><span class="dt">&gt;</span></span></code></pre>
+            </div>
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Enter your issue"
+              rows="4"
+              cols="40"
+            ></textarea>
+          </section>
+          <section id="checkboxes-radio-buttons">
+            <h2>Checkboxes &amp; Radio Buttons</h2>
+            <h3>Favorite Programming Languages</h3>
+            <form>
+              <label for="html">
+                <input
+                  type="checkbox"
+                  name="languages"
+                  id="html"
+                  value="html"
+                  disabled
+                />
+                HTML
+              </label>
+              <label for="css">
+                <input
+                  type="checkbox"
+                  name="languages"
+                  id="css"
+                  value="css"
+                  checked
+                />
+                CSS
+              </label>
+              <label for="javascript">
+                <input
+                  type="checkbox"
+                  name="languages"
+                  id="javascript"
+                  value="javascript"
+                  checked
+                />
+                JavaScript
+              </label>
+            </form>
+            <hr />
+            <p>The checkboxes above are rendered by:</p>
+            <div class="sourceCode" id="cb8">
+              <pre
+                class="sourceCode html"
+              ><code class="sourceCode html"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Favorite Programming Languages<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+        <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="dt">&gt;</span></span>
+        <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">&quot;html&quot;</span><span class="dt">&gt;</span></span>
+        <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;checkbox&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;languages&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;html&quot;</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;html&quot;</span><span class="ot"> disabled </span><span class="dt">/&gt;</span></span>
+        <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    HTML</span>
+        <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
+        <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">&quot;css&quot;</span><span class="dt">&gt;</span></span>
+        <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;checkbox&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;languages&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;css&quot;</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;css&quot;</span><span class="ot"> checked </span><span class="dt">/&gt;</span></span>
+        <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    CSS</span>
+        <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
+        <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">&quot;javascript&quot;</span><span class="dt">&gt;</span></span>
+        <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span></span>
+        <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="ot">      type</span><span class="op">=</span><span class="st">&quot;checkbox&quot;</span></span>
+        <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="ot">      name</span><span class="op">=</span><span class="st">&quot;languages&quot;</span></span>
+        <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="ot">      id</span><span class="op">=</span><span class="st">&quot;javascript&quot;</span></span>
+        <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="ot">      value</span><span class="op">=</span><span class="st">&quot;javascript&quot;</span></span>
+        <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="ot">      checked</span></span>
+        <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="ot">    </span><span class="dt">/&gt;</span></span>
+        <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    JavaScript</span>
+        <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
+        <span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span></code></pre>
+            </div>
+            <p>
+              Notice that the <code>input</code> tags are within the
+              <code>label</code> tag.
+            </p>
+            <h2>Product Size</h2>
+            <form>
+              <label for="small">
+                <input type="radio" name="size" id="small" value="small" />
+                Small
+              </label>
+              <label for="medium">
+                <input
+                  type="radio"
+                  name="size"
+                  id="medium"
+                  value="medium"
+                  checked
+                />
+                Medium
+              </label>
+              <label for="large">
+                <input type="radio" name="size" id="large" value="large" />
+                Large
+              </label>
+            </form>
+            <hr />
+            <div class="sourceCode" id="cb9">
+              <pre
+                class="sourceCode html"
+              ><code class="sourceCode html"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Product Size<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+        <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">form</span><span class="dt">&gt;</span></span>
+        <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">&quot;small&quot;</span><span class="dt">&gt;</span></span>
+        <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;radio&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;size&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;small&quot;</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;small&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+        <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    Small</span>
+        <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
+        <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">&quot;medium&quot;</span><span class="dt">&gt;</span></span>
+        <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;radio&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;size&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;medium&quot;</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;medium&quot;</span><span class="ot"> checked </span><span class="dt">/&gt;</span></span>
+        <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    Medium</span>
+        <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
+        <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">label</span><span class="ot"> for</span><span class="op">=</span><span class="st">&quot;large&quot;</span><span class="dt">&gt;</span></span>
+        <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">input</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;radio&quot;</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;size&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;large&quot;</span><span class="ot"> value</span><span class="op">=</span><span class="st">&quot;large&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+        <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    Large</span>
+        <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">label</span><span class="dt">&gt;</span></span>
+        <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span></code></pre>
+            </div>
+            <p>
+              <em>Note:</em> There are other types of input attributes such as
+              date, time and color etc.
+            </p>
+          </section>
+          <section id="tables">
+            <h2>Tables</h2>
+            <p>Tables are for tabular data, don’t ever use it for layout!</p>
+            <div class="table-wrapper">
+              <table>
+                <colgroup>
+                  <col style="background-color: aqua" />
+                  <!--First column group-->
+                  <col style="background-color: darkcyan" />
+                  <!--Second column group-->
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th colspan="2">Telephone Numbers</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@gmail.com</td>
+                    <td>555-555-5555</td>
+                    <td>111-111-1111</td>
+                  </tr>
+                  <tr>
+                    <td>Jane</td>
+                    <td>Doe</td>
+                    <td>jane@gmail.com</td>
+                    <td>555-555-5555</td>
+                    <td>111-111-1111</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="sourceCode" id="cb10">
+              <pre
+                class="sourceCode html"
+              ><code class="sourceCode html"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">table</span><span class="dt">&gt;</span></span>
+        <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">colgroup</span><span class="dt">&gt;</span></span>
+        <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">col</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;background-color: aqua&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+        <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">col</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;background-color: darkcyan&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+        <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">colgroup</span><span class="dt">&gt;</span></span>
+        <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">thead</span><span class="dt">&gt;</span></span>
+        <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!--Table head--&gt;</span></span>
+        <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+        <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>      <span class="co">&lt;!--Table row--&gt;</span></span>
+        <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>First Name<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+        <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>      <span class="co">&lt;!--Table schemas/attributes--&gt;</span></span>
+        <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Last Name<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+        <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Email<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+        <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">th</span><span class="ot"> colspan</span><span class="op">=</span><span class="st">&quot;2&quot;</span><span class="dt">&gt;</span>Telephone Numbers<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+        <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+        <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">thead</span><span class="dt">&gt;</span></span>
+        <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">tbody</span><span class="dt">&gt;</span></span>
+        <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!--Table body--&gt;</span></span>
+        <span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+        <span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>John<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+        <span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>      <span class="co">&lt;!--Table elements--&gt;</span></span>
+        <span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Doe<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+        <span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>john@gmail.com<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+        <span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>555-555-5555<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+        <span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>111-111-1111<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+        <span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+        <span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+        <span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Jane<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+        <span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Doe<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+        <span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>jane@gmail.com<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+        <span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>555-555-5555<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+        <span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>111-111-1111<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+        <span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+        <span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">tbody</span><span class="dt">&gt;</span></span>
+        <span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">table</span><span class="dt">&gt;</span></span></code></pre>
+            </div>
+          </section>
+          <section id="embedding-youtube-videos-or-google-maps-with-iframe">
+            <h2>Embedding YouTube videos or Google Maps with Iframe</h2>
+            <p>
+              This is useful for inserting a youtube video or google
+              maps/calendar in your website.
+            </p>
+            <div class="sourceCode" id="cb11">
+              <pre
+                class="sourceCode html"
+              ><code class="sourceCode html"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">iframe</span></span>
+        <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ot">  src</span><span class="op">=</span><span class="st">&quot;https://youtube.com/embed/8sXRyHI3bLw&quot;</span></span>
+        <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ot">  frameborder</span><span class="op">=</span><span class="st">&quot;0&quot;</span></span>
+        <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ot">  width</span><span class="op">=</span><span class="st">&quot;500&quot;</span></span>
+        <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ot">  height</span><span class="op">=</span><span class="st">&quot;315&quot;</span></span>
+        <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&gt;&lt;/</span><span class="kw">iframe</span><span class="dt">&gt;</span></span>
+        <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+        <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- PDF --&gt;</span></span>
+        <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">iframe</span></span>
+        <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="ot">  src</span><span class="op">=</span><span class="st">&quot;./invoicesample.pdf&quot;</span></span>
+        <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="ot">  frameborder</span><span class="op">=</span><span class="st">&quot;0&quot;</span></span>
+        <span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="ot">  width</span><span class="op">=</span><span class="st">&quot;500&quot;</span></span>
+        <span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="ot">  height</span><span class="op">=</span><span class="st">&quot;315&quot;</span></span>
+        <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&gt;&lt;/</span><span class="kw">iframe</span><span class="dt">&gt;</span></span>
+        <span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+        <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Google Maps --&gt;</span></span>
+        <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">iframe</span></span>
+        <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="ot">  width</span><span class="op">=</span><span class="st">&quot;500&quot;</span></span>
+        <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="ot">  height</span><span class="op">=</span><span class="st">&quot;315&quot;</span></span>
+        <span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="ot">  src</span><span class="op">=</span><span class="st">&quot;https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.0000000000005!2d-122.0841926846827!3d37.42240897982596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e3f0b0b8a3d%3A0x7f3f7e3f0b0b8a3d!2sGoogleplex!5e0!3m2!1sen!2sus!4v1605720000000!5m2!1sen!2sus&quot;</span></span>
+        <span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="dt">&gt;&lt;/</span><span class="kw">iframe</span><span class="dt">&gt;</span></span>
+        <span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
+        <span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Google Calender --&gt;</span></span>
+        <span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">iframe</span></span>
+        <span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="ot">  width</span><span class="op">=</span><span class="st">&quot;500&quot;</span></span>
+        <span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="ot">  height</span><span class="op">=</span><span class="st">&quot;315&quot;</span></span>
+        <span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="ot">  src</span><span class="op">=</span><span class="st">&quot;https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com</span><span class="er">&amp;</span><span class="st">ctz=America%2FLos_Angeles&quot;</span></span>
+        <span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="dt">&gt;&lt;/</span><span class="kw">iframe</span><span class="dt">&gt;</span></span></code></pre>
+            </div>
+          </section>
+          <section id="popover-details">
+            <h2>Popover &amp; Details</h2>
+            <p>
+              Popover basically allows us to toggle a element through a button
+              without any
+              <em>javascript</em>.
+            </p>
+            <button popovertarget="popover-1">Open Popover 1</button>
+            <div id="popover-1" data-popover="">This is popover 1</div>
+            <div class="sourceCode" id="cb12">
+              <pre
+                class="sourceCode html"
+              ><code class="sourceCode html"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> popovertarget</span><span class="op">=</span><span class="st">&quot;popover-1&quot;</span><span class="dt">&gt;</span>Open Popover 1<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+        <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+        <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> popover id</span><span class="op">=</span><span class="st">&quot;popover-1&quot;</span><span class="dt">&gt;</span>This is popover 1<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre>
+            </div>
+            <p>
+              Details on the other hand, we can click on it to show more
+              information about something.
+            </p>
+            <details>
+              <summary>Details</summary>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum,
+              nisi!
+            </details>
+            <div class="sourceCode" id="cb13">
+              <pre
+                class="sourceCode html"
+              ><code class="sourceCode html"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">details</span><span class="dt">&gt;</span></span>
+        <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">summary</span><span class="dt">&gt;</span>Details<span class="dt">&lt;/</span><span class="kw">summary</span><span class="dt">&gt;</span></span>
+        <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, nisi!</span>
+        <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">details</span><span class="dt">&gt;</span></span></code></pre>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <!-- JS Files
+    <script src="js/init.js"></script> -->
+    <!-- <script src="js/mdb.umd.min.js"></script> -->
+    <script src="js/sidebar.js"></script>
+  </body>
+</html>
