@@ -37,27 +37,25 @@
     />
   </head>
   <body>
-    <div class="hero" id="home">
-      <header>
+<div class="hero" id="home">
+<header>
   <div class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i></div> <!-- Hamburger icon -->
-
   <nav class="navbar-custom" id="navbar">
-    <div class="nav-item"><a href="#" class="current">HOME</a></div>
-    <div class="nav-item"><a href="#about">ABOUT ME</a></div>
-    <div class="nav-item"><a href="#technologies">TECHNOLOGY</a></div>
-    <div class="nav-item"><a href="#languages">LANGUAGES</a></div>
-    <div class="nav-item"><a href="#projects">PROJECTS</a></div>
-    <div class="nav-item"><a href="#experiences">EXPERIENCES</a></div>
-    <div class="nav-item"><a href="#contact">CONTACT</a></div>
+      <div class="nav-item"><a href="#" class="current">HOME</a></div>
+      <div class="nav-item"><a href="#about">ABOUT ME</a></div>
+      <div class="nav-item"><a href="#technologies">TECHNOLOGY</a></div>
+      <div class="nav-item"><a href="#languages">LANGUAGES</a></div>
+      <div class="nav-item"><a href="#projects">PROJECTS</a></div>
+      <div class="nav-item"><a href="#experiences">EXPERIENCES</a></div>
+      <div class="nav-item"><a href="#contact-title">CONTACT</a></div>
+      <div class="nav-item vlog"><a href="Note-html.html" style="color: #0088cc;">LEARN HTML</a></div>
   </nav>
 </header>
-
-
-      <div>
-        <h1><span class="special-word">FRONT</span> END</h1>
-        <h1>BACK <span class="special-word">END</span></h1>
-      </div>
+    <div class="hero-content">
+      <h1><span class="special-word">FRONT</span> END</h1>
+      <h1>BACK <span class="special-word">END</span></h1>
     </div>
+</div>
     <div class="page-container">
       <aside class="sidenav">
         <a href="#home" class="nav-link current">Home</a>
@@ -66,7 +64,7 @@
         <a href="#languages" class="nav-link">Languages</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#experiences" class="nav-link">Experiences</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#contact-title" class="nav-link">Contact</a>
       </aside>
       <section class="main">
         <section class="about" id="about">
@@ -430,12 +428,30 @@
           </div>
           <div class="project-grid hidden" id="private-projects">
             <div class="project-card">
-              <h2>Personal Budget Tracker</h2>
-              <p>A web app to track income and expenses.</p>
-              <span class="tech">React, Node.js, MongoDB</span>
+              <h2>Lumina – Web Design Gallery (Static Site)</h2>
+              <p>A responsive landing page for a modern design gallery. Developed with vanilla HTML, CSS, and JavaScript, without the use of frameworks.</p>
+              <span class="tech">HTML, CSS, JavaScript</span>
               <div class="project-links">
-                <a href="#">GitHub</a>
-                <a href="#">Demo</a>
+                <a href="https://github.com/Bilguun-Batsaikhan/lumina_udemy">GitHub</a>
+                <a href="https://lumina-udemy.netlify.app/">Demo</a>
+              </div>
+            </div>
+            <div class="project-card">
+              <h2>Investment Calculator</h2>
+              <p>A web app to calculate potential investment returns.</p>
+              <span class="tech">Angular, TypeScript</span>
+              <div class="project-links">
+                <a href="https://github.com/Bilguun-Batsaikhan/investment_calculator">GitHub</a>
+                <a href="https://gilded-shortbread-a3c045.netlify.app/">Demo</a>
+              </div>
+            </div>
+            <div class="project-card">
+              <h2>Easy Task</h2>
+              <p>Showcase of a task management application.</p>
+              <span class="tech">Angular, TypeScript</span>
+              <div class="project-links">
+                <a href="https://github.com/Bilguun-Batsaikhan/Angular_Study/tree/gh-pages">GitHub</a>
+                <a href="https://bilguun-batsaikhan.github.io/Angular_Study/">Demo</a>
               </div>
             </div>
             <!-- Add more private projects -->
@@ -492,24 +508,37 @@
         <!-- Form -->
         <h3 id="contact-title">Contact Me</h3>
         <section id="contact" class="contact-container">
-          <form name="contact" netlify>
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" name="name" id="name" required />
+          <form name="contact" netlify class="needs-validation" novalidate>
+            <div class="form-outline mb-5">
+              <input type="text" id="name" name="name" class="form-control" required />
+              <label class="form-label" for="name">Name</label>
+              <div class="invalid-feedback">Please enter your name.</div>
             </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="text" name="email" id="email" required />
+
+            <div class="form-outline mb-5">
+              <input type="email" id="email" name="email" class="form-control" required />
+              <label class="form-label" for="email">Email</label>
+              <div class="invalid-feedback">Please enter a valid email.</div>
             </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea name="message" id="message"></textarea>
+
+            <div class="form-outline mb-5">
+              <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+              <label class="form-label" for="message">Message</label>
+              <div class="invalid-feedback">Please enter a message.</div>
             </div>
-            <div class="form-group">
-              <button type="submit" class="btn">Submit</button>
+
+            <button type="submit" class="btn btn-primary btn-block mb-5">Submit</button>
+
+            <div class="text-center social-icons mt-4">
+              <a href="https://www.linkedin.com/in/bilguun-batsaikhan-205a972a1/" target="_blank" rel="noopener" class="me-3" style="color:#0e76a8; font-size:2rem;"><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.instagram.com/daimoscv/" target="_blank" rel="noopener" class="me-3" style="color:#E1306C; font-size:2rem;"><i class="fab fa-instagram"></i></a>
+              <a href="https://wa.me/+393898929008" target="_blank" rel="noopener" class="me-3" style="color:#25D366; font-size:2rem;"><i class="fab fa-whatsapp"></i></a>
+              <a href="https://t.me/DaiMoscv" target="_blank" rel="noopener" style="color:#0088cc; font-size:2rem;"><i class="fab fa-telegram"></i></a>
             </div>
           </form>
         </section>
+
+        <!-- Social Icons -->
       </section>
       <aside class="sidenav">
 
@@ -520,5 +549,22 @@
     <!-- Custom script -->
     <script src="js/init.js"></script>
     <script type="module" src="js/sidebar.js"></script>
+    <script>
+  // Enable Bootstrap-style validation
+  (() => {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach((form) => {
+      form.addEventListener('submit', (event) => {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      });
+    });
+  })();
+</script>
+
   </body>
 </html>

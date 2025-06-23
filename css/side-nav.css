@@ -27,21 +27,6 @@
 }
 
 @media (max-width: 768px) {
-  /* .page-container {
-    flex-direction: column;
-  }
-
-  .sidenav,
-  .main-content {
-    width: 100%;
-  }
-
-  .sidenav {
-    position: static;
-    height: auto;
-    flex-direction: row;
-    justify-content: space-around;
-  } */
   .sidenav {
     display: none;
   }
