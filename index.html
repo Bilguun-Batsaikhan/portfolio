@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/timeline.css">
     <link rel="stylesheet" href="css/side-nav.css">
     <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/mobile.css">
     <!-- <link rel="stylesheet" href="css/timeline.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -49,6 +50,7 @@
       <div class="nav-item"><a href="#experiences">EXPERIENCES</a></div>
       <div class="nav-item"><a href="#contact-title">CONTACT</a></div>
       <div class="nav-item vlog"><a href="Note-html.html" style="color: #0088cc;">LEARN HTML</a></div>
+      <button id="darkModeToggle"><i class="fa-solid fa-moon"></i></button>
   </nav>
 </header>
     <div class="hero-content">
@@ -68,7 +70,7 @@
       </aside>
       <section class="main">
         <section class="about" id="about">
-          <h3>ABOUT ME</h3>
+          <h3 class = "custom-h3">ABOUT ME</h3>
             <p>
             Hi! I'm <strong>Bilguun</strong> — a passionate full-stack developer with a focus on Java, Spring Boot, and modern web technologies. I recently graduated in <span>Computer Science</span> from the <span>University of Turin</span> and love building clean, functional, and user-friendly applications.
             <br><br>
@@ -78,7 +80,7 @@
             </p>
         </section>
         <section class="technologies" id="technologies">
-          <h3>TECHNOLOGY</h3>
+          <h3 class = "custom-h3">TECHNOLOGY</h3>
           <div class="tech-intro">
             <p>
               Here are the core technologies I work with regularly, along with
@@ -159,7 +161,7 @@
             </p>
           </div>
         </section>
-        <h3 style="display: block">LANGUAGES</h3>
+        <h3 class = "custom-h3">LANGUAGES</h3>
         <section id="languages">
           <!-- <div class="languages-h">
             <div class="h-item">PROGRAMMING</div>
@@ -261,7 +263,7 @@
           </div>
         </section>
         <section id="projects">
-          <h3>PROJECTS</h3>
+          <h3 class = "custom-h3">PROJECTS</h3>
           <div class="project-tabs">
             <button class="tab active" data-tab="university">
               University Projects
@@ -458,46 +460,46 @@
           </div>
         </section>
         <!-- Section: Timeline -->
-        <h3 style="display: block">EXPERIENCES</h3>
+        <h3 class = "custom-h3">EXPERIENCES</h3>
         <section class="timeline-container" id="experiences">
           <ul class="timeline">
-            <li class="timeline-item mb-5">
-              <h5 class="fw-bold">Organizer, Renewable Energy Student Club - MUST, UB</h5>
+            <li class="timeline-item timeline-content mb-5">
+              <h5 class="fw-bold timeline-title">Organizer, Renewable Energy Student Club - MUST, UB</h5>
               <p class="text-muted mb-2 fw-bold">Mongolia, 2017</p>
               <p class="text-muted">
                 Organized academic conferences and weekly professional lectures, fostering student engagement and support.
               </p>
             </li>
-            <li class="timeline-item mb-5">
-              <h5 class="fw-bold">Student Exchange - Shibaura Institute Technology</h5>
+            <li class="timeline-item timeline-content mb-5">
+              <h5 class="fw-bold timeline-title">Student Exchange - Shibaura Institute Technology</h5>
               <p class="text-muted mb-2 fw-bold">Tokyo, Japan, 2018</p>
               <p class="text-muted">
                 Conducted an international exchange at SIT, gaining cultural and technological insights.
               </p>
             </li>
-            <li class="timeline-item mb-5">
-              <h5 class="fw-bold">GLC Student Staff - SIT Global Learning Commons</h5>
+            <li class="timeline-item timeline-content mb-5">
+              <h5 class="fw-bold timeline-title">GLC Student Staff - SIT Global Learning Commons</h5>
               <p class="text-muted mb-2 fw-bold">Saitama, Japan, 2018</p>
               <p class="text-muted">
                 Provided support and information to both international and Japanese students.
               </p>
             </li>
-            <li class="timeline-item mb-5">
-              <h5 class="fw-bold">English Tutor - Saitamaken Kenmin Katsudo</h5>
+            <li class="timeline-item timeline-content mb-5">
+              <h5 class="fw-bold timeline-title">English Tutor - Saitamaken Kenmin Katsudo</h5>
               <p class="text-muted mb-2 fw-bold">Saitama, Japan, 2018</p>
               <p class="text-muted">
                 Experienced Japanese school life and tutored Japanese students in a foreign language while living with them.
               </p>
             </li>
-            <li class="timeline-item mb-5">
-              <h5 class="fw-bold">Electrical Circuit Engineer - ШУГАМ ХХК</h5>
+            <li class="timeline-item timeline-content mb-5">
+              <h5 class="fw-bold timeline-title">Electrical Circuit Engineer - ШУГАМ ХХК</h5>
               <p class="text-muted mb-2 fw-bold">UB, Mongolia, 2019</p>
               <p class="text-muted">
                 Created electrical circuit plans using AutoCAD, ensuring computational accuracy and safety considerations.
               </p>
             </li>
-            <li class="timeline-item mb-5">
-              <h5 class="fw-bold">Full Stack Web Developer Intern – Lutech S.p.A.</h5>
+            <li class="timeline-item timeline-content mb-5">
+              <h5 class="fw-bold timeline-title">Full Stack Web Developer Intern – Lutech S.p.A.</h5>
               <p class="text-muted mb-2 fw-bold">Turin, Italy, Nov 2024 – Jan 2025</p>
               <p class="text-muted">
                 Developed a Scalable Asset Management system with Role-Based Access and JWT-Backed Microservices using Angular and Springboot
@@ -506,7 +508,7 @@
           </ul>
         </section>
         <!-- Form -->
-        <h3 id="contact-title">Contact Me</h3>
+        <h3 id="contact-title" class="custom-h3">CONTACT ME</h3>
         <section id="contact" class="contact-container">
           <form name="contact" netlify class="needs-validation" novalidate>
             <div class="form-outline mb-5">
@@ -549,6 +551,8 @@
     <!-- Custom script -->
     <script src="js/init.js"></script>
     <script type="module" src="js/sidebar.js"></script>
+    <script type="module" src="js/darkmode.js"></script>
+    <script type="module" src="js/hamburger.js"></script>
     <script>
   // Enable Bootstrap-style validation
   (() => {

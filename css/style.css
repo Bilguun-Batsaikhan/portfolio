@@ -2,32 +2,88 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: #7c0000 1px solid; */
 }
 
-body {
-  font-family: "Montserrat", sans-serif;
-  background-color: #d9d9d9;
-  color: #333;
-}
-
+/* Base Light Mode Colors (Your current :root) */
 :root {
-  --primary-color: #bd1a1a;
-  --secondary-color: #333;
-  /* --night-primary-color: #000000; */
-  /* --night-secondary-color: #ffffff; */
-  --text-color: #ffffff;
-  --grid-item-bg: #f9f9f9;
+  --primary-color: #bd1a1a; /* A vibrant red */
+  --secondary-color: #333; /* Dark gray for text */
+  --text-color: #ffffff; /* White text (used for elements on primary bg) */
+  --grid-item-bg: #f9f9f9; /* Off-white for grid items */
   --font-family: "Montserrat", sans-serif;
   --font-size: 16px;
   --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   --box-shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --navbar-bg: #ffffff; /* White navbar */
+  --navbar-link: #333333; /* Dark gray links */
+  --navbar-link-hover-bg: rgba(0, 0, 0, 0.2); /* Semi-transparent hover */
+  --about-text: #666; /* Medium gray for about text */
+  --project-card-bg: #f9f9f9; /* Off-white for project cards */
+  --project-link: #7c0000; /* Darker red for project links */
+  --tab-bg: #eee; /* Light gray for tabs */
+  --tab-active-bg: #f80000; /* Vibrant red for active tab */
+  --tab-active-color: #fff; /* White text for active tab */
+  --border-color: #ccc; /* Light gray border */
+  --tech-color: #666; /* Medium gray for tech text */
+  --vlog-link: #4b74ba; /* Blue for vlog links */
+
+  /* --- NEW SIDENAV VARIABLES (LIGHT MODE) --- */
+  --sidenav-bg: #ffffff;
+  --sidenav-link: #666;
+  --sidenav-active-link: #ba0000;
+}
+
+/* Dark Mode Colors (Complementary/Dark-Friendly) */
+body.dark-mode {
+  /* Backgrounds & Main Text */
+  --grid-item-bg: #1e1e1e; /* Darker background, almost black */
+  --secondary-color: #e0e0e0; /* Lighter text color for main body */
+  --text-color: #333; /* Darker text (used for elements on primary bg, if any in dark mode) */
+  --navbar-bg: #282828; /* Darker navbar */
+
+  /* Primary/Accent Colors (derived from original red #bd1a1a) */
+  /* A complementary to red is green/cyan. For UI, a desaturated blue-green or a muted purple can work nicely. */
+  --primary-color: #6a9955; /* Muted green/cyan - or consider a muted purple like #8a6f9f */
+  --project-link: #9ccc65; /* Lighter, complementary green for links */
+  --tab-active-bg: #6a9955; /* Use the new primary for active tab */
+
+  /* Other UI Elements */
+  --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6); /* Darker shadow for dark mode */
+  --box-shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.8);
+  --navbar-link: #e0e0e0; /* Lighter links in dark navbar */
+  --navbar-link-hover-bg: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Semi-transparent white hover */
+  --about-text: #b0b0b0; /* Lighter gray for about text */
+  --project-card-bg: #2a2a2a; /* Darker background for project cards */
+  --tab-bg: #3a3a3a; /* Darker gray for inactive tabs */
+  --tab-active-color: #fff; /* White text for active tab (can remain same) */
+  --border-color: #444; /* Darker borders */
+  --tech-color: #b0b0b0; /* Lighter gray for tech text */
+  --vlog-link: #7fb2e0; /* Lighter blue for vlog links */
+
+  /* --- NEW SIDENAV VARIABLES (DARK MODE) --- */
+  --sidenav-bg: #222222; /* Darker background for sidenav */
+  --sidenav-link: #b0b0b0; /* Lighter links for dark sidenav */
+  --sidenav-active-link: #9ccc65; /* Use the new primary/complementary color */
+}
+
+/* Base Body Styles - Apply transitions for smooth changes */
+body {
+  font-family: var(--font-family);
+  background-color: var(--grid-item-bg); /* Renamed from --background-color */
+  color: var(--secondary-color);
+  transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition */
 }
 
 .page-container {
   display: flex;
   min-height: 100vh;
   /* overflow-x: hidden; */
+  background-color: var(--sidenav-bg);
 }
 
 /* Hero Section */
@@ -36,7 +92,7 @@ body {
   position: relative;
   height: 100vh;
   background: url("../images/25329.jpg") no-repeat center center/cover;
-  background-color: #333;
+  background-color: var(--secondary-color);
   overflow-y: hidden;
   /* clip-path: inset(0 0 120px 0); */
 }
@@ -55,7 +111,7 @@ body {
 .hero header,
 .hero .hero-content {
   position: relative;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .hero::after {
@@ -84,7 +140,7 @@ body {
   padding: 10px 20px;
   /* margin: 0 100px; */
   border-radius: 5px;
-  background-color: rgb(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 .special-word {
@@ -97,10 +153,15 @@ body {
   cursor: pointer;
 }
 
+.hamburger i {
+  color: var(--primary-color);
+  z-index: 1;
+}
+
 /* Navbar */
 .navbar-custom {
   height: 70px;
-  background-color: #ffffff;
+  background-color: var(--navbar-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,14 +170,14 @@ body {
 
 .navbar-custom .nav-item a {
   font-weight: 400;
-  color: #333333;
+  color: var(--navbar-link);
   text-decoration: none;
   padding: 10px 20px;
   transition: background-color 0.3s ease;
 }
 
 .navbar-custom .nav-item a:hover {
-  background-color: rgb(0, 0, 0, 0.2);
+  background-color: var(--navbar-link-hover-bg);
   /* font-weight: 500; */
   color: var(--primary-color);
   border-radius: 3px;
@@ -152,16 +213,17 @@ body {
   gap: 10px;
   text-align: justify;
   padding: 0 100px;
-  color: #333;
+  color: var(--secondary-color);
 }
 
-h3 {
+.custom-h3 {
   width: 100%;
   font-size: 2rem;
   font-weight: 400;
   padding: 40px 0 20px 0;
-  border-top: #ccc 2px solid;
+  border-top: var(--border-color) 2px solid;
   text-align: center;
+  color: var(--primary-color);
 }
 
 .main .about p span {
@@ -171,7 +233,7 @@ h3 {
 .main .about p {
   font-size: 1.2rem;
   line-height: 1.5;
-  color: #666;
+  color: var(--about-text);
 }
 
 /* .main .about p::first-letter {
@@ -188,7 +250,7 @@ h3 {
 .tech-intro p,
 .tech-summary p {
   text-align: center;
-  color: #666;
+  color: var(--about-text);
   margin-bottom: 2rem;
   line-height: 1.6;
 }
@@ -208,6 +270,7 @@ h3 {
   text-align: center;
   box-shadow: var(--box-shadow);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  color: var(--secondary-color);
 }
 
 .grid-item i {
@@ -219,7 +282,7 @@ h3 {
 
 .grid-item:hover {
   transform: translateY(-10px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--box-shadow-hover);
 }
 
 .grid-item:has(svg) {
@@ -239,7 +302,7 @@ h3 {
 /*Projects*/
 #projects {
   padding: 60px 0;
-  background-color: #fff;
+  /* background-color: var(--text-color); */
   text-align: center;
 }
 
@@ -252,7 +315,7 @@ h3 {
 
 .tab {
   padding: 10px 20px;
-  background-color: #eee;
+  background-color: var(--tab-bg);
   border: none;
   cursor: pointer;
   font-weight: 500;
@@ -260,8 +323,8 @@ h3 {
 }
 
 .tab.active {
-  background-color: #f80000;
-  color: white;
+  background-color: var(--tab-active-bg);
+  color: var(--tab-active-color);
 }
 
 .project-grid {
@@ -272,7 +335,8 @@ h3 {
 }
 
 .project-card {
-  background-color: #f9f9f9;
+  background-color: var(--project-card-bg);
+  color: var(--secondary-color);
   padding: 20px;
   border-radius: 12px;
   box-shadow: var(--box-shadow);
@@ -291,13 +355,13 @@ h3 {
 
 .tech {
   font-size: 0.8rem;
-  color: #666;
+  color: var(--tech-color);
 }
 
 .project-links a {
   margin-right: 10px;
   font-size: 0.9rem;
-  color: #7c0000;
+  color: var(--project-link);
   text-decoration: none;
 }
 
@@ -306,7 +370,7 @@ h3 {
 }
 
 .project-details .project-links a {
-  border-right: 1px solid #ccc;
+  border-right: 1px solid var(--border-color);
   padding-right: 10px;
 }
 
@@ -314,149 +378,33 @@ h3 {
   display: none !important;
 }
 
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
-    width: 100%;
-    margin: 0;
-  }
+/* Dark Mode Toggle Button Styling */
+#darkModeToggle {
+  background: var(--navbar-bg, #fff);
+  color: var(--secondary-color);
+  border: 1px solid var(--border-color, #ccc);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  margin-left: 10px;
+}
 
-  .hamburger {
-    display: block;
-    padding: 10px;
-    position: fixed;
-  }
+#darkModeToggle:hover,
+#darkModeToggle:focus {
+  background: var(--secondary-color);
+  color: var(--text-color, #fff);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  outline: none;
+  transform: translateY(-2px) scale(1.07);
+}
 
-  .navbar-custom {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    margin-top: 50px;
-    /* padding: 40px; */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-
-  .navbar-custom.show {
-    height: 200px;
-    display: flex;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  }
-
-  .nav-item {
-    width: 100%;
-    text-align: center;
-    background-color: white;
-    padding: 10px 0;
-    border-bottom: 1px solid #ccc;
-  }
-
-  .vlog a {
-    color: #4b74ba;
-  }
-
-  .grid-t {
-    grid-template-columns: repeat(2, minmax(150px, 1fr));
-    align-content: center;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-
-  .project-grid {
-    grid-template-columns: repeat(2, minmax(250px, 1fr));
-  }
-
-  .grid-item i {
-    display: inline-block;
-    text-align: start;
-    color: var(--primary-color);
-    transition: transform 0.3s ease;
-    margin-right: 5px;
-  }
-  .grid-item:has(svg) {
-    background-color: var(--grid-item-bg);
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    flex-direction: row;
-  }
-  .grid-item {
-    font-size: 1rem;
-    padding: 10px;
-    text-align: start;
-  }
-  .grid-item svg {
-    width: 30px;
-    height: 30px;
-    fill: var(--primary-color);
-    margin-right: 5px;
-  }
-  .hero::after {
-    width: 300px;
-    height: 500px;
-    margin-top: 30px;
-  }
-
-  .hero-content {
-    /* display: block; */
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* margin-top: 300px; */
-  }
-
-  .hero-content h1 {
-    width: 50%;
-    color: #333;
-    font-size: 1.5rem;
-    line-height: normal;
-    font-weight: 600;
-    text-align: center;
-    padding: 0;
-    margin: 0 auto;
-    border-radius: 0px;
-    background-color: rgb(255, 255, 255, 0.7);
-  }
-
-  .hero-content h1:first-child::after {
-    content: "+";
-    display: block;
-  }
-
-  .main {
-    width: 100%;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .main .about {
-    width: 100%;
-    height: auto;
-    padding: 20px 0;
-    text-align: center;
-  }
-
-  #projects .project-grid {
-    grid-template-columns: repeat(1, minmax(250px, 1fr));
-    padding: 20px 10px;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    padding: 20px 0;
-    margin: 0;
-  }
-
-  .main .about p {
-    font-size: 1rem;
-    line-height: 1.4;
-    padding: 0 20px;
-  }
+#darkModeToggle i {
+  pointer-events: none;
 }

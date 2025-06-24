@@ -337,13 +337,16 @@ details p {
   background: #232323;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .sidenav {
     display: none;
   }
-}
+  .content {
+    width: 100%;
+  }
 
-.main {
-  width: 100%;
-  padding: 20px;
+  .main {
+    width: 100%;
+    padding: 20px;
+  }
 }
