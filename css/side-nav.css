@@ -1,18 +1,22 @@
+/* sidenav.css */
+
 .sidenav {
   width: 10%;
   padding: 100px 40px;
-  background-color: #ffffff;
+  background-color: var(--sidenav-bg); /* Use the variable */
   display: flex;
   flex-direction: column;
   gap: 10px;
-  position: sticky; /* optional: keep it visible while scrolling */
+  position: sticky;
   top: 0;
   height: 100%;
+  transition: background-color 0.5s ease; /* Add transition for smoothness */
 }
 
 .sidenav a {
-  color: #666;
+  color: var(--sidenav-link); /* Use the variable */
   text-decoration: none;
+  transition: color 0.5s ease; /* Add transition for smoothness */
 }
 
 .sidenav a:hover {
@@ -20,10 +24,11 @@
 }
 
 .nav-link.active {
-  color: #ba0000;
+  color: var(--sidenav-active-link); /* Use the variable */
   padding: 10px;
   font-weight: bold;
-  border-left: 2px solid #ba0000;
+  border-left: 2px solid var(--sidenav-active-link); /* Use the variable */
+  transition: color 0.5s ease, border-color 0.5s ease; /* Add transition for smoothness */
 }
 
 @media (max-width: 768px) {

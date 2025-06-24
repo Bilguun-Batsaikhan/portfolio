@@ -385,97 +385,99 @@
         <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  ...</span>
         <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">form</span><span class="dt">&gt;</span></span></code></pre>
             </div>
-            <table>
-              <colgroup>
-                <col style="width: 22%" />
-                <col style="width: 17%" />
-                <col style="width: 60%" />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>Attribute / Tag</th>
-                  <th>Purpose</th>
-                  <th>Explanation</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><code>&lt;form&gt;</code></td>
-                  <td>Form container</td>
-                  <td>Groups input fields for data submission.</td>
-                </tr>
-                <tr>
-                  <td><code>&lt;div&gt;</code></td>
-                  <td>Container</td>
-                  <td>Used for layout and grouping elements.</td>
-                </tr>
-                <tr>
-                  <td><code>&lt;label for="name"&gt;</code></td>
-                  <td>Input label</td>
-                  <td>
-                    Describes the input field; linked via
-                    <code>for="name"</code>.
-                  </td>
-                </tr>
-                <tr>
-                  <td><code>for="name"</code></td>
-                  <td>Link label to input</td>
-                  <td>
-                    Matches the <code>id</code> of the input so clicking the
-                    label focuses the input.
-                  </td>
-                </tr>
-                <tr>
-                  <td><code>&lt;input&gt;</code></td>
-                  <td>User input field</td>
-                  <td>Accepts data from the user.</td>
-                </tr>
-                <tr>
-                  <td><code>type="text"</code></td>
-                  <td>Input type</td>
-                  <td>Creates a single-line text input.</td>
-                </tr>
-                <tr>
-                  <td><code>id="name"</code></td>
-                  <td>Identifier</td>
-                  <td>
-                    Uniquely identifies the element; used by
-                    <code>label</code> and JavaScript.
-                  </td>
-                </tr>
-                <tr>
-                  <td><code>placeholder="Enter name"</code></td>
-                  <td>Hint text</td>
-                  <td>
-                    Shows a suggestion inside the input box before the user
-                    types.
-                  </td>
-                </tr>
-                <tr>
-                  <td><code>name="name"</code></td>
-                  <td>Form data key</td>
-                  <td>
-                    Used as the key when the form is submitted (e.g.,
-                    <code>name=John</code>).
-                  </td>
-                </tr>
-                <tr>
-                  <td><code>required</code></td>
-                  <td>Field must be filled</td>
-                  <td>Prevents form submission if the input is empty.</td>
-                </tr>
-                <tr>
-                  <td><code>minlength="3"</code></td>
-                  <td>Minimum characters</td>
-                  <td>Requires at least 3 characters to submit.</td>
-                </tr>
-                <tr>
-                  <td><code>maxlength="10"</code></td>
-                  <td>Maximum characters</td>
-                  <td>Limits input to 10 characters max.</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="table-wrapper">
+              <table>
+                <colgroup>
+                  <col style="width: 22%" />
+                  <col style="width: 17%" />
+                  <col style="width: 60%" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>Attribute / Tag</th>
+                    <th>Purpose</th>
+                    <th>Explanation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;form&gt;</code></td>
+                    <td>Form container</td>
+                    <td>Groups input fields for data submission.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;div&gt;</code></td>
+                    <td>Container</td>
+                    <td>Used for layout and grouping elements.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;label for="name"&gt;</code></td>
+                    <td>Input label</td>
+                    <td>
+                      Describes the input field; linked via
+                      <code>for="name"</code>.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>for="name"</code></td>
+                    <td>Link label to input</td>
+                    <td>
+                      Matches the <code>id</code> of the input so clicking the
+                      label focuses the input.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;input&gt;</code></td>
+                    <td>User input field</td>
+                    <td>Accepts data from the user.</td>
+                  </tr>
+                  <tr>
+                    <td><code>type="text"</code></td>
+                    <td>Input type</td>
+                    <td>Creates a single-line text input.</td>
+                  </tr>
+                  <tr>
+                    <td><code>id="name"</code></td>
+                    <td>Identifier</td>
+                    <td>
+                      Uniquely identifies the element; used by
+                      <code>label</code> and JavaScript.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>placeholder="Enter name"</code></td>
+                    <td>Hint text</td>
+                    <td>
+                      Shows a suggestion inside the input box before the user
+                      types.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>name="name"</code></td>
+                    <td>Form data key</td>
+                    <td>
+                      Used as the key when the form is submitted (e.g.,
+                      <code>name=John</code>).
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>required</code></td>
+                    <td>Field must be filled</td>
+                    <td>Prevents form submission if the input is empty.</td>
+                  </tr>
+                  <tr>
+                    <td><code>minlength="3"</code></td>
+                    <td>Minimum characters</td>
+                    <td>Requires at least 3 characters to submit.</td>
+                  </tr>
+                  <tr>
+                    <td><code>maxlength="10"</code></td>
+                    <td>Maximum characters</td>
+                    <td>Limits input to 10 characters max.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </section>
           <section id="select-boxes-text-area">
             <h2>Select Boxes &amp; Text Area</h2>
