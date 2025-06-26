@@ -217,8 +217,9 @@
 
 @media (max-width: 768px) {
   .content {
-    top: 20%;
+    /* top: 20%; */
     font-size: 1rem;
+    width: 220px;
   }
   .content__container {
     padding: 0 20px;
@@ -229,7 +230,7 @@
 }
 @media (max-width: 480px) {
   .content {
-    top: 10%;
+    /* top: 12%; */
     font-size: 1rem;
   }
   .content__container {
