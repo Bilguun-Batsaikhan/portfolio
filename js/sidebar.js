@@ -19,7 +19,8 @@ const observer = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.6,
+    threshold: 0.3,
+    rootMargin: "0px 0px -30% 0px",
   }
 );
 
